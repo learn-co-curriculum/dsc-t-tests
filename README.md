@@ -46,6 +46,7 @@ Independent two-sample t-tests are for when we are comparing two different, unre
 
 *Agricultural scientists are trying to compare the difference in soybean yields in two different counties of Mississippi.*
 
+You will learn more about the specifics of two sample t-tests in future lessons, but this lesson will focus on executing a one sample t-test.
 
 #### Regardless of the type of t-test you are performing, there are 5 main steps to executing them:
 
