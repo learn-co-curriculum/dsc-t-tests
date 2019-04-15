@@ -34,14 +34,9 @@ The 1-sample t-test is a statistical procedure used to determine whether a sampl
 
 *Suppose you are interested in determining whether a bakery production line produces cakes with the weight of exactly 2 pounds. To test this hypothesis, you could collect a sample of cakes from the production line, measure their weights, and compare the sample with a value of 2 using a one-sample t-test.* 
 
-We will discuss this process in detail in the following description. First, we must ensure that our experiment settings meet the necessary pre-requisites for conducting the t-test as given below:
-
-At this point, you should have some idea of the difference between the sample and the population mean. To review, there is a null hypothesis that states there's no increase in sales performance and an alternate hypothesis that states that there is an increase in sales performance after the training session.
-
-The first step for stating these findings would be to assume that the null hypothesis is true. That means the mean of the sample and population are the same. What researchers are tying to determine is: given that the null hypothesis is true, how rare is the data you're seeing?
 
 
-As discussed previously, there are 5 main steps when conducting an experiment:
+There are 5 main steps when conducting a t-test:
 
 1) Set up null and alternative hypotheses
 
@@ -49,9 +44,9 @@ As discussed previously, there are 5 main steps when conducting an experiment:
 
 3) Calculate the test statistic
 
-4) Determine the critical or p-value or find the rejection region
+4) Determine the critical or p-value (find the rejection region)
 
-5) Make a decision about the null hypothesis
+5) Compare t-value with critical t-value to accept or reject the Null hypothesis.
 
 
 Now, you're going to go through these 5 steps in more detail to complete a t-test.
@@ -71,7 +66,7 @@ Let's begin with a sample experiment here.
 
 > **Did the training work?
 
-Before completing the hypothesis test, let's calculate some summary statistics and ensure that the data is relatively normal.
+Before completing the hypothesis test, let's calculate some summary statistics to see if the mean of the sample differed a lot from the population. After, you can check to ensure that the data is relatively normal.
 
 
 * **The population mean ($\mu$).** Given as 100 (from past data).
@@ -129,6 +124,11 @@ print ('The sample contains', n, 'observations, having a mean of', x_bar, "and a
     The sample contains 25 observations, having a mean of 109.5456 and a standard deviation (sigma) =  13.338774643871902 , with 24 degrees of freedom. The difference between sample and population means is: 9.545599999999993
 
 
+The sample mean is $9.54 per sale higher than the population mean, which indicates that at least superficially, the training program appears to have improved performance.
+
+Is the sample roughly normally distributed?
+
+
 
 ```python
 sns.set(color_codes=True)
@@ -143,12 +143,12 @@ sns.distplot(sample)
 
 
 
-    <matplotlib.axes._subplots.AxesSubplot at 0x110a4d0b8>
+    <matplotlib.axes._subplots.AxesSubplot at 0x1a16dba588>
 
 
 
 
-![png](index_files/index_2_2.png)
+![png](index_files/index_3_2.png)
 
 
 ### Step 1: Write your null and alternative hypothesis statements
@@ -160,21 +160,21 @@ As you are trying to monitor a change in the sales performance after the trainin
 > $H_{0}: \mu$ = $100.
 
     
-This is the one that we are testing. Our alternate hypothesis should address the expected change in the sales performance i.e. the sales performance has increased and the mean of sales post-training is greater than 100. 
+This is the one that you are testing. Our alternate hypothesis should address the expected change in the sales performance i.e. the sales performance has increased and the mean of sales post-training is greater than 100. 
 
 **$H_{1}$: *The alternative hypothesis is that there is a change i.e. the mean sales increased.* **
 
 > $H_{1}: \mu$ > $100.
 
 
-### Step 2: Choose a Significance Levels (Alpha)
+### Step 2: Choose a Significance Level (Alpha)
 
 
 The significance level, also denoted as alpha or `α`, is the probability of rejecting the null hypothesis when it is true. For example, a significance level of 0.05 indicates a 5% risk of concluding that a difference exists when there is no actual difference. Look at the following graphs for a better understanding: 
 
 
 <img src="images/P05.png" alt="drawing" width="500px"/>
-In the graph above, the two shaded areas are equidistant from the null hypothesis value and each area has a probability of 0.025, for a total of 0.05. In statistics, we call these shaded areas the critical regions for a two-tailed test. If the population mean is 260, you’d expect to obtain a sample mean that falls in the critical region 5% of the time. The critical region defines how far away our sample statistic must be from the null hypothesis value before we can say it is unusual enough to reject the null hypothesis.
+In the graph above, the two shaded areas are equidistant from the null hypothesis value and each area has a probability of 0.025, for a total of 0.05. In statistics, you call these shaded areas the critical regions for a two-tailed test. If the population mean is 260, you’d expect to obtain a sample mean that falls in the critical region 5% of the time. The critical region defines how far away our sample statistic must be from the null hypothesis value before you can say it is unusual enough to reject the null hypothesis.
 
 Our sample mean (330.6) falls within the critical region, which indicates it is statistically significant at the 0.05 level.
 
@@ -187,7 +187,7 @@ The two shaded areas each have a probability of 0.005, the two of which add up t
 
 Using the graph, data scientists are able to determine that their results are statistically significant at the 0.05 level without using a P value. However, when you use the numeric output produced by statistical software, you’ll need to compare the P value to your significance level to make this determination.
 
-### **For Acme's experiment, they decide to use an $\alpha$ of 0.05.**
+### **For Acme's experiment, you can assume an $\alpha$ of 0.05.**
 
 
 
@@ -243,14 +243,14 @@ plt.show()
 ```
 
 
-![png](index_files/index_7_0.png)
+![png](index_files/index_8_0.png)
 
 
 ## Step 4: Calculate critical value (find rejection region)
 
 Note that a positive t value indicates that the sample mean is greater than the population mean and vice versa. This means that the sample's average sales performance post-training is greater than average population sales performance. 
 
-This sounds like good news, **BUT** is the increase high enough to reject the null hypothesis and accept that there is a significant increase in the mean of post training sales performance, or is it just by chance. It's possible to calculate a critical t-value with a t-table and also by using python `scipy.stats` module.
+This sounds like good news, **BUT** is the increase high enough to reject the null hypothesis and accept that there is a significant increase in the mean of post-training sales performance, or is it just by chance. It's possible to calculate a critical t-value with a t-table and also by using python `scipy.stats` module.
 
 
 The critical value approach involves determining "likely" or "unlikely", by determining whether or not the observed test statistic is more extreme than would be expected if the null hypothesis were true. This involves comparing the observed test statistic to some cutoff value, called the **"critical value"**. 
@@ -269,11 +269,11 @@ You use a one-tailed t-test towards the positive (right side of the t-distributi
 
 Look up 24 degrees of freedom in the left column and a p value of 0.05 (from 5% alpha level - 95% confidence level) in the top row. The intersection is `1.711`. This is our one-sample critical t-value.
 
-For the Null hypothesis to be true, what this critical value means is that we would expect most values to fall under 1.711. If our calculated t-value (from Step 4) falls within this range, the null hypothesis is likely true and we fail to reject the null hypothesis.
+For the Null hypothesis to be true, what this critical value means is that you would expect most values to fall under 1.711. If your calculated t-value (from Step 4) falls within this range, the null hypothesis is likely true and you would fail to reject the null hypothesis.
 
 This value can also be calculated in Python using Scipy.stats module using ppf() (Percent Point Function) as `scipy.stats.t.ppf(1-alpha, df)`. 
 
-Ley's calculate the critical t using this formula and confirm our earlier findings. 
+Let's calculate the critical t using this formula and confirm our earlier findings. 
 
 
 ```python
@@ -290,9 +290,9 @@ t_crit
 
 
 
-As you can see , the critical value returned from the function (rounded off 2 two decimal places) is same as one we found the in t-distribution table i.e. 1.711. 
+As you can see, the critical value returned from the function (rounded off 2 two decimal places) is the same as the one you should have found the in the t-distribution table i.e. 1.711. 
 
-Using matplotlib, you can graph the rejection region as such.
+Using matplotlib, you can graph the rejection region as such. Any t-statistic that falls within the shaded region to the right will cause the hypothesis to be rejected.
 
 
 ```python
@@ -320,10 +320,10 @@ plt.show()
 ```
 
 
-![png](index_files/index_11_0.png)
+![png](index_files/index_12_0.png)
 
 
-### Step 5: Compare t-value with critical t-value to accept or reject the Null hypothesis.
+### Step 5: Compare t-value with critical t-value to accept or reject the Null Hypothesis
 
 Any t value which is greater than 1.711 will fall into the shaded region in the above figure. t-values greater than 1.711 would reflect an "extreme" result and can be used to reject the null hypothesis. 
 
@@ -349,7 +349,7 @@ print ("The t-value for sample is", round(results[0], 2), "and the p-value is", 
     The t-value for sample is 3.58 and the p-value is 0.0015
 
 
-We can use our null and alternate hypotheses defined earlier to state the results from our findings. 
+You can use our null and alternate hypotheses defined earlier to state the results from our findings. 
 
 
 ```python
@@ -394,9 +394,9 @@ plt.show()
 ```
 
 
-![png](index_files/index_17_0.png)
+![png](index_files/index_18_0.png)
 
 
 ## Summary
 
-In this lesson, you saw a quick introduction to hypothesis testing using frequentists methods with t-values and p-values. You saw how a one sample t-test can be applied to contexts where the population mean is unknown and you have a limited amount of sample data. You looked at all the stages required for such hypothesis testing with a description of steps and also, how to perform these functions in Python.
+In this lesson, you saw a quick introduction to hypothesis testing using frequentists methods with t-values and p-values. You saw how a one sample t-test can be applied to contexts where the population mean is unknown and you have a limited amount of sample data. You looked at all the stages required for such hypothesis testing with a description of steps and also, how to perform these steps in Python.
