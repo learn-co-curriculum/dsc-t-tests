@@ -1,5 +1,5 @@
 
-# Conducting One Sample T-Tests
+# Conducting T-Tests
 
 ## Introduction
 Just as you previously used the t distribution to provide confidence intervals on estimating the population mean, you can also use similar methods to test whether two populations are different, statistically speaking. To do this, you can use a t-test.
@@ -34,9 +34,20 @@ The 1-sample t-test is a statistical procedure used to determine whether a sampl
 
 *Suppose you are interested in determining whether a bakery production line produces cakes with the weight of exactly 2 pounds. To test this hypothesis, you could collect a sample of cakes from the production line, measure their weights, and compare the sample with a value of 2 using a one-sample t-test.* 
 
+### Two Sample t-tests
+
+The two-sample t-test is used to determine if two population means are equal. The main types of two-sampled t-tests are paired and independent tests. Paired Tests are useful for determining how different a sample is affected by a certain treatment. In other words, the individual items/people in the sample will remain the same and researchers are comparing how they change after treatment. Here is an example of a scenario where a two-sample paired t-test could be applied:
+
+*The US olympic weightlifting team is trying out a new workout techniques to in an attempt to improve everyone's powerlifting abilities. Did the program have an effect on a 95% significance level?*
+
+Because we are looking at how specific individuals were affected by a treatment, we would use the paired t-test.
+
+Independent two-sample t-tests are for when we are comparing two different, unrelated samples to one another. Unlike paired t-tests, we are not taking paired differences because there is no way to pair two unrelated samples! Here is an example of a scenario where a two-sample independent t-test could be applied:
+
+*Agricultural scientists are trying to compare the difference in soybean yields in two different counties of Mississippi.*
 
 
-There are 5 main steps when conducting a t-test:
+#### Regardless of the type of t-test you are performing, there are 5 main steps to executing them:
 
 1) Set up null and alternative hypotheses
 
@@ -51,7 +62,7 @@ There are 5 main steps when conducting a t-test:
 
 Now, you're going to go through these 5 steps in more detail to complete a t-test.
 
-Let's begin with a sample experiment here.
+Let's begin with a sample experiment:
 
 ### Sample question: 
 
@@ -64,9 +75,9 @@ Let's begin with a sample experiment here.
        110.43, 101.9 , 123.89,  97.03, 116.23, 
         108.3, 112.82, 119.57, 131.38, 128.39]
 
-> **Did the training work?
+** Did the training work? **
 
-Before completing the hypothesis test, let's calculate some summary statistics to see if the mean of the sample differed a lot from the population. After, you can check to ensure that the data is relatively normal.
+Before completing the hypothesis test, let's calculate some summary statistics to see if the mean of the sample differed a substantial amount from the population. After, you can check to ensure that the data is relatively normal.
 
 
 * **The population mean ($\mu$).** Given as 100 (from past data).
