@@ -36,7 +36,7 @@ The 1-sample t-test is a statistical procedure used to determine whether a sampl
 
 ### Two Sample t-tests
 
-The two-sample t-test is used to determine if two population means are equal. The main types of two-sampled t-tests are paired and independent tests. Paired Tests are useful for determining how different a sample is affected by a certain treatment. In other words, the individual items/people in the sample will remain the same and researchers are comparing how they change after treatment. Here is an example of a scenario where a two-sample paired t-test could be applied:
+The two-sample t-test is used to determine if two population means are equal. The main types of two-sampled t-tests are paired and independent tests. Paired tests are useful for determining how different a sample is affected by a certain treatment. In other words, the individual items/people in the sample will remain the same and researchers are comparing how they change after treatment. Here is an example of a scenario where a two-sample paired t-test could be applied:
 
 *The US olympic weightlifting team is trying out a new workout techniques to in an attempt to improve everyone's powerlifting abilities. Did the program have an effect on a 95% significance level?*
 
@@ -47,6 +47,13 @@ Independent two-sample t-tests are for when we are comparing two different, unre
 *Agricultural scientists are trying to compare the difference in soybean yields in two different counties of Mississippi.*
 
 You will learn more about the specifics of two sample t-tests in future lessons, but this lesson will focus on executing a one sample t-test.
+
+### Assumptions for performing t-tests 
+
+When performing various kinds of t-tests, you assume that the sample observations have numeric and continuous values. You also assume that the sample observations are independent from each other (that is, that you have a simple random sample), and that the samples have been drawn from normal distributions. You can visually inspect the distribution of your sample using a histogram, for example.
+
+In the case of unpaired two-sample t-tests, you also assume that the populations the samples have been drawn from have the same variance. For paired two-sample t-tests, you assume that the _difference_ between the two sets of samples are normally distributed.  
+
 
 #### Regardless of the type of t-test you are performing, there are 5 main steps to executing them:
 
