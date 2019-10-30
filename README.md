@@ -7,8 +7,8 @@ Just as you previously used the t distribution to provide confidence intervals f
 ## Objectives
 You will be able to:
 
-* Perform a complete one sample t-test analysis and describe the results
-
+* Compare when you would use one sample vs. two sample t-tests
+* Perform a one sample t-test and make conclusions about an experiment based on the results
 
 
 ## Hypothesis testing using the T-distribution
