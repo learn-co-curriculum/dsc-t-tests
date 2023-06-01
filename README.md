@@ -247,11 +247,13 @@ If we want to investigate that question using a t-test, first we want to check t
 
 ```python
 sns.set(color_codes=True)
-sns.histplot(sample, kde=True, bins=5);
+sns.histplot(sample, kde=True, bins=5, color='darkblue');
 ```
 
 
+    
 ![png](index_files/index_12_0.png)
+    
 
 
 Let's say that looks close enough. Now we'll actually set up and run the hypothesis test.
@@ -351,7 +353,9 @@ ax.legend();
 ```
 
 
+    
 ![png](index_files/index_19_0.png)
+    
 
 
 ### Step 4: Calculate Critical Value (Find Rejection Region)
@@ -437,7 +441,9 @@ ax.legend();
 ```
 
 
+    
 ![png](index_files/index_26_0.png)
+    
 
 
 ### Step 5: Compare Sample t-value with Critical t-value: Can We Reject the Null Hypothesis?
@@ -466,7 +472,9 @@ ax.legend();
 ```
 
 
+    
 ![png](index_files/index_28_0.png)
+    
 
 
 ***Is our observed t-statistic in the rejection region?***
